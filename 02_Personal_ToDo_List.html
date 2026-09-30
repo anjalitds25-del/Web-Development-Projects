@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personal To-Do List</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-purple-50 min-h-screen">
+<div class="max-w-5xl mx-auto p-6">
+<div class="text-center mb-8">
+<h1 class="text-4xl font-bold text-indigo-900">📋 Personal To-Do List</h1>
+<p class="text-gray-500 mt-2">Small steps make big progress ♡</p>
+</div>
+<div class="bg-white p-5 rounded-2xl shadow mb-6">
+<div class="flex flex-col md:flex-row gap-4">
+<input type="text" id="taskInput" placeholder="Add a new task..." class="flex-1 border border-indigo-200 rounded-lg p-3 outline-none">
+<input type="date" id="taskDate" class="border border-indigo-200 rounded-lg p-3">
+<button onclick="addTask()" class="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700">+ Add Task</button>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-4 mb-6">
+<div class="bg-indigo-100 p-4 rounded-xl text-center"><h2 id="totalTasks" class="text-2xl font-bold text-indigo-700">0</h2><p>Total Tasks</p></div>
+<div class="bg-green-100 p-4 rounded-xl text-center"><h2 id="completedTasks" class="text-2xl font-bold text-green-700">0</h2><p>Completed</p></div>
+<div class="bg-pink-100 p-4 rounded-xl text-center"><h2 id="pendingTasks" class="text-2xl font-bold text-pink-700">0</h2><p>Pending</p></div>
+</div>
+<div id="taskList" class="space-y-4"></div>
+</div>
+<script>
+let tasks=[];
+function addTask(){
+let input=document.getElementById("taskInput"), date=document.getElementById("taskDate");
+let text=input.value.trim();
+if(text===""){alert("Please enter a task!");return;}
+tasks.push({text:text,date:date.value,completed:false});
+input.value="";date.value="";displayTasks();
+}
+function displayTasks(){
+let list=document.getElementById("taskList");list.innerHTML="";
+tasks.forEach(function(task,index){
+let box=document.createElement("div");
+box.className="bg-white p-5 rounded-xl shadow flex items-center justify-between";
+box.innerHTML=`
+<div class="flex items-center gap-4">
+<input type="checkbox" ${task.completed?"checked":""} onclick="completeTask(${index})" class="w-5 h-5">
+<div>
+<h3 class="font-semibold text-lg ${task.completed?"line-through text-gray-400":"text-indigo-900"}">${task.text}</h3>
+<p class="text-gray-500 text-sm">📅 ${task.date||"No date"}</p>
+</div></div>
+<button onclick="deleteTask(${index})" class="bg-red-100 text-red-600 px-3 py-2 rounded-lg">🗑️ Delete</button>`;
+list.appendChild(box);
+});
+updateCounter();
+}
+function completeTask(index){tasks[index].completed=!tasks[index].completed;displayTasks();}
+function deleteTask(index){tasks.splice(index,1);displayTasks();}
+function updateCounter(){
+let total=tasks.length, completed=tasks.filter(task=>task.completed).length;
+document.getElementById("totalTasks").innerText=total;
+document.getElementById("completedTasks").innerText=completed;
+document.getElementById("pendingTasks").innerText=total-completed;
+}
+</script>
+</body>
+</html>

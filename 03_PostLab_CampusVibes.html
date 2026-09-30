@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CampusVibes - TechFest</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+<nav class="bg-white shadow">
+<div class="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center">
+<h1 class="text-2xl font-bold text-indigo-700">🎓 CampusVibes</h1>
+<div class="flex gap-6 mt-3 md:mt-0">
+<a href="#home" class="text-indigo-600 font-semibold">Home</a>
+<a href="#events">Events</a><a href="#about">About</a><a href="#contact">Contact</a>
+</div>
+<button onclick="registerNow()" class="bg-indigo-600 text-white px-5 py-2 rounded-lg mt-3 md:mt-0">Register Now</button>
+</div>
+</nav>
+<section id="home" class="bg-gradient-to-r from-indigo-100 to-purple-100">
+<div class="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-10 items-center">
+<div>
+<p class="text-indigo-600 text-xl font-semibold">Welcome to</p>
+<h1 class="text-5xl font-bold text-indigo-950 mt-2">TechFest 2K25</h1>
+<p class="text-xl text-gray-600 mt-4">Ideas × Innovation × Impact</p>
+<p class="text-gray-600 mt-5">Join us for a 3-day celebration of technology, creativity and talent.</p>
+<div class="mt-5 text-gray-700">📅 22 - 24 Oct 2025<br>📍 College Campus, Nagpur</div>
+<button onclick="exploreEvents()" class="mt-6 bg-indigo-600 text-white px-6 py-3 rounded-lg">Explore Events →</button>
+</div>
+<div class="bg-white rounded-2xl shadow-xl p-10 text-center">
+<div class="text-7xl">💻</div>
+<h2 class="text-3xl font-bold text-indigo-800 mt-5">Innovation Starts Here</h2>
+<p class="text-gray-500 mt-3">Learn • Create • Compete • Connect</p>
+</div>
+</div>
+</section>
+<section class="max-w-7xl mx-auto px-6 py-10">
+<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+<div class="bg-indigo-100 p-6 rounded-xl"><div class="text-3xl">💻</div><h3 class="font-bold text-xl mt-3">Coding Competitions</h3><p class="text-gray-600">Test your logic and build the future.</p></div>
+<div class="bg-pink-100 p-6 rounded-xl"><div class="text-3xl">🎵</div><h3 class="font-bold text-xl mt-3">Cultural Events</h3><p class="text-gray-600">Dance, music, art and more.</p></div>
+<div class="bg-green-100 p-6 rounded-xl"><div class="text-3xl">💡</div><h3 class="font-bold text-xl mt-3">Workshops</h3><p class="text-gray-600">Learn from industry experts.</p></div>
+<div class="bg-blue-100 p-6 rounded-xl"><div class="text-3xl">👥</div><h3 class="font-bold text-xl mt-3">Networking</h3><p class="text-gray-600">Connect, collaborate and grow.</p></div>
+</div>
+</section>
+<section id="events" class="max-w-7xl mx-auto px-6 py-10">
+<h2 class="text-3xl font-bold text-indigo-950 mb-8">Upcoming Events</h2>
+<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-white rounded-xl shadow overflow-hidden"><div class="bg-indigo-600 text-white p-8 text-center text-4xl">💻</div><div class="p-5"><h3 class="text-xl font-bold">Hackathon 2025</h3><p class="text-gray-500 mt-2">📅 22 Oct 2025</p><p class="text-gray-500">📍 Lab Block</p><button onclick="showDetails('Hackathon 2025')" class="mt-4 border border-indigo-600 text-indigo-600 px-4 py-2 rounded-lg">View Details</button></div></div>
+<div class="bg-white rounded-xl shadow overflow-hidden"><div class="bg-pink-500 text-white p-8 text-center text-4xl">🎵</div><div class="p-5"><h3 class="text-xl font-bold">Battle of Bands</h3><p class="text-gray-500 mt-2">📅 23 Oct 2025</p><p class="text-gray-500">📍 Auditorium</p><button onclick="showDetails('Battle of Bands')" class="mt-4 border border-pink-500 text-pink-500 px-4 py-2 rounded-lg">View Details</button></div></div>
+<div class="bg-white rounded-xl shadow overflow-hidden"><div class="bg-green-500 text-white p-8 text-center text-4xl">💡</div><div class="p-5"><h3 class="text-xl font-bold">Web Development Workshop</h3><p class="text-gray-500 mt-2">📅 22 Oct 2025</p><p class="text-gray-500">📍 Seminar Hall</p><button onclick="showDetails('Web Development Workshop')" class="mt-4 border border-green-500 text-green-600 px-4 py-2 rounded-lg">View Details</button></div></div>
+<div class="bg-white rounded-xl shadow overflow-hidden"><div class="bg-purple-500 text-white p-8 text-center text-4xl">🎨</div><div class="p-5"><h3 class="text-xl font-bold">Art & Photography Exhibition</h3><p class="text-gray-500 mt-2">📅 24 Oct 2025</p><p class="text-gray-500">📍 Open Lawn</p><button onclick="showDetails('Art & Photography Exhibition')" class="mt-4 border border-purple-500 text-purple-600 px-4 py-2 rounded-lg">View Details</button></div></div>
+</div>
+</section>
+<footer class="bg-gray-900 text-white text-center p-8 mt-10">
+<h2 class="text-2xl font-bold">🎓 CampusVibes</h2><p class="text-gray-400 mt-2">Events • Learning • Community</p><p class="text-gray-500 mt-5">© 2025 CampusVibes. All rights reserved.</p>
+</footer>
+<script>
+function registerNow(){alert("Registration form will open soon!");}
+function exploreEvents(){document.getElementById("events").scrollIntoView({behavior:"smooth"});}
+function showDetails(eventName){alert("You selected: "+eventName);}
+</script>
+</body>
+</html>

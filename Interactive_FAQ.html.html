@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Interactive FAQ</title>
+<style>
+body{font-family:Arial;background:#f2f2f2;padding:30px}
+.faq{max-width:600px;margin:auto}
+h1{text-align:center}
+.question{background:white;padding:15px;margin-top:10px;cursor:pointer;font-weight:bold;border:1px solid #ccc}
+.answer{background:#e8f0ff;padding:15px;display:none}
+</style>
+</head>
+<body>
+<div class="faq">
+<h1>Frequently Asked Questions</h1>
+<div class="question">What is HTML?</div>
+<div class="answer">HTML is used to create the structure of a webpage.</div>
+<div class="question">What is CSS?</div>
+<div class="answer">CSS is used to style and design a webpage.</div>
+<div class="question">What is JavaScript?</div>
+<div class="answer">JavaScript is used to add interaction and dynamic behavior to webpages.</div>
+<div class="question">What is DOM?</div>
+<div class="answer">DOM stands for Document Object Model. It allows JavaScript to access and modify HTML elements.</div>
+</div>
+<script>
+let questions=document.querySelectorAll(".question");
+questions.forEach(function(question){
+question.addEventListener("click",function(){
+let answer=question.nextElementSibling;
+if(answer.style.display==="block") answer.style.display="none";
+else answer.style.display="block";
+});
+});
+</script>
+</body>
+</html>
